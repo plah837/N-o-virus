@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Alerta de Segurança</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      padding: 24px; color: #f4f4f4; background:
+      radial-gradient(ellipse at top, #350606 0%, #100707 38%, #050505 78%);
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    main { width: min(760px, 100%); text-align: center; }
+    .address {
+      display: inline-block; max-width: 100%; overflow-wrap: anywhere;
+      padding: 10px 16px; margin-bottom: 30px; border: 1px solid #393939;
+      border-radius: 999px; background: #171717; color: #ddd; font-size: 14px;
+    }
+    .warning { color: #ff3030; font-size: clamp(52px, 12vw, 86px); line-height: 1; }
+    .panel {
+      margin-top: 22px; padding: clamp(22px, 5vw, 42px);
+      border: 2px solid #e21b1b; border-radius: 16px;
+      background: rgba(12, 12, 12, .92);
+      box-shadow: 0 0 32px rgba(255, 0, 0, .15);
+    }
+    h1 { margin: 0; font-size: clamp(29px, 6vw, 48px); line-height: 1.12; }
+    h1 span { display: block; color: #ff2929; margin-top: 8px; }
+    p { color: #d0d0d0; line-height: 1.6; font-size: 16px; }
+    button {
+      margin-top: 14px; padding: 14px 22px; border: 0; border-radius: 10px;
+      color: white; background: #d71920; font-size: 16px; font-weight: 750;
+      cursor: pointer;
+    }
+    button:hover { background: #ff2929; }
+    #reveal { display: none; margin-top: 22px; padding: 18px; border-radius: 12px;
+      background: #102515; border: 1px solid #38a653; color: #d8ffe0; }
+    .small { font-size: 12px; color: #888; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="address">🔒 Nao.e.viros.confia.com.br</div>
+    <div class="warning" aria-hidden="true">⚠</div>
+    <section class="panel">
+      <h1>AGORA SEU CELULAR <span>FOI HACKEADO!</span></h1>
+      <p>Detectamos uma atividade muito suspeita… 👀</p>
+      <button type="button" id="jokeButton">Ver o que aconteceu</button>
+      <div id="reveal" role="status">
+        <strong>😂 CALMA! É PEGADINHA!</strong>
+        <p>Seu celular não foi hackeado por este site. Nenhum dado foi acessado ou alterado.</p>
+      </div>
+    </section>
+    <p class="small">Página de brincadeira — não verifica nem altera a segurança do dispositivo.</p>
+  </main>
+  <script>
+    document.getElementById('jokeButton').addEventListener('click', function () {
+      document.getElementById('reveal').style.display = 'block';
+      this.textContent = 'Pegadinha revelada 😄';
+      this.disabled = true;
+    });
+  </script>
+</body>
+</html>
